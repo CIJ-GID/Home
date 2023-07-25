@@ -5,7 +5,7 @@ import Home from "./Home";
 
 const links = [
   { name: "Home", path: "/" },
-  { name: "Admin", path: "/admin" },
+  { name: "Admin", path: "/Admin" },
 ];
 
 export default function Root({ addAdminButton }) {
