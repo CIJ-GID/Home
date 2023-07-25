@@ -1,0 +1,22 @@
+{
+  "buttons": [
+    {
+      "label": "Gestion de actas",
+      "link": "wqeqwe",
+      "imageUrl": "/src/assets/default.png",
+      "id": 1
+    },
+    {
+      "label": "Consultas IP",
+      "link": "asdasd",
+      "imageUrl": "/src/assets/default.png",
+      "id": 2
+    },
+    {
+      "label": "Consultas Reportes",
+      "link": "asdsad",
+      "imageUrl": "/src/assets/default.png",
+      "id": 3
+    }
+  ]
+}

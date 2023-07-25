@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import defaultImage from "../assets/default.png"; // Ruta de la imagen por defecto
 
 const Admin = () => {
   const [buttonData, setButtonData] = useState({
@@ -25,29 +26,30 @@ const Admin = () => {
   const handleAddButton = () => {
     const { name, ipAddress, port, imageUrl } = buttonData;
     if (name.trim() && ipAddress.trim()) {
+      const newImageUrl = imageUrl.trim() ? imageUrl : defaultImage;
       const newButton = {
         label: name,
         link: `${ipAddress}${port ? `:${port}` : ""}`,
-        imageUrl: imageUrl.trim() ? imageUrl : null,
+        imageUrl: imageUrl.trim() ? imageUrl : newImageUrl, // Usar la imagen por defecto si no se ingresó una imagen
       };
 
       // Agregar el nuevo botón al estado local de buttons
       setButtons((prevButtons) => [...prevButtons, newButton]);
 
-      // Guardar el estado local de buttons en el archivo buttons.json
-      fetch("/api/saveButtons", {
+      // Guardar el nuevo botón en la API de json-server
+      fetch("http://localhost:8000/buttons", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(buttons),
+        body: JSON.stringify(newButton),
       })
         .then((response) => response.json())
         .then((data) => {
-          console.log(data);
+          console.log("Button added:", data);
         })
         .catch((error) => {
-          console.error("Error saving buttons:", error);
+          console.error("Error saving button:", error);
         });
 
       // Limpiar el formulario después de agregar el botón
@@ -59,6 +61,7 @@ const Admin = () => {
       });
     }
   };
+  
 
   return (
     <div className="container mx-auto max-w-md mt-10 p-6 bg-white rounded-lg shadow-md">

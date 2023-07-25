@@ -1,23 +1,19 @@
 import React, { useState, useEffect } from "react";
-
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const [buttons, setButtons] = useState([]);
 
   useEffect(() => {
-    // Función para obtener los botones desde el archivo buttons.json
-    const getButtonsData = async () => {
-      try {
-        const response = await fetch("../buttons.json"); // Ruta al archivo buttons.json
-        const buttonsData = await response.json();
-        setButtons(buttonsData);
-      } catch (error) {
-        console.error("Error reading buttons.json:", error);
-      }
-    };
-
-    // Llamamos a la función para obtener los botones
-    getButtonsData();
+    // Obtener los botones desde la API de json-server
+    fetch("http://localhost:8000/buttons")
+      .then((response) => response.json())
+      .then((data) => {
+        setButtons(data);
+      })
+      .catch((error) => {
+        console.error("Error getting buttons:", error);
+      });
   }, []);
 
   return (
