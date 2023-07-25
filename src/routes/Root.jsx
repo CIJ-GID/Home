@@ -1,12 +1,14 @@
 import { Outlet, NavLink, useNavigation } from "react-router-dom";
+import React from "react";
+import Admin from "./Admin";
+import Home from "./Home";
 
 const links = [
-  { name: "Ruta default", path: "/" },
-  { name: "Ruta 2", path: "/ruta2" },
-  //   { name: "Ruta 3", path: "/ruta3" },
+  { name: "Home", path: "/" },
+  { name: "Admin", path: "/admin" },
 ];
 
-export default function Root() {
+export default function Root({ addAdminButton }) {
   const navigation = useNavigation();
 
   return (

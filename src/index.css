@@ -35,3 +35,9 @@
     @apply h-screen w-screen p-6 px-32 pt-20;
   }
 }
+
+.small-image {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
