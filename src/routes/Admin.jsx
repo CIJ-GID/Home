@@ -118,7 +118,7 @@ const Admin = () => {
         )}
         <button
           onClick={handleAddButton}
-          className="w-full bg-blue-500 hover:bg-blue-600 text-black font-semibold py-2 rounded-md focus:outline-none focus:ring focus:ring-blue-300"
+          className="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 rounded-md focus:outline-none focus:ring focus:ring-blue-300"
         >
           Agregar Botón
         </button>
