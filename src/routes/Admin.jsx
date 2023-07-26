@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import defaultImage from "../assets/default.png"; // Ruta de la imagen por defecto
+import LoginForm from "./LoginModal";
 
 const Admin = () => {
   const [buttonData, setButtonData] = useState({
@@ -8,6 +9,12 @@ const Admin = () => {
     port: "",
     imageUrl: "",
   });
+
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // Estado para controlar si el usuario está autenticado
+
+  const handleLogin = (loggedIn) => {
+    setIsLoggedIn(loggedIn);
+  };
 
   const [buttons, setButtons] = useState([]);
 
@@ -61,7 +68,11 @@ const Admin = () => {
       });
     }
   };
-  
+
+  // Si el usuario no está autenticado, mostramos el modal de inicio de sesión
+  if (!isLoggedIn) {
+    return <LoginForm onLogin={handleLogin} />;
+  }
 
   return (
     <div className="container mx-auto max-w-md mt-10 p-6 bg-white rounded-lg shadow-md">

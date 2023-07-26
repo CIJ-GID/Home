@@ -19,10 +19,100 @@
       "id": 3
     },
     {
-      "label": "adad",
-      "link": "ada",
-      "imageUrl": "blob:http://localhost:5173/9cbeb148-a43c-42e5-98a1-5301c9159b74",
+      "label": "Gestor Jessica",
+      "link": "asdas",
+      "imageUrl": "/src/assets/default.png",
       "id": 4
+    },
+    {
+      "label": "Gestor Samanta",
+      "link": "dasdsa",
+      "imageUrl": "/src/assets/default.png",
+      "id": 5
+    },
+    {
+      "label": "Gestor Forense UFED",
+      "link": "safasfs",
+      "imageUrl": "/src/assets/default.png",
+      "id": 6
+    },
+    {
+      "label": "Gestor Cibercrimen",
+      "link": "asgfasfgs",
+      "imageUrl": "/src/assets/default.png",
+      "id": 7
+    },
+    {
+      "label": "Gestor Marcos",
+      "link": "asgasgsa",
+      "imageUrl": "/src/assets/default.png",
+      "id": 8
+    },
+    {
+      "label": "Gestor GID",
+      "link": "asdZ",
+      "imageUrl": "/src/assets/default.png",
+      "id": 9
+    },
+    {
+      "label": "Gestor GATO",
+      "link": "asgas",
+      "imageUrl": "/src/assets/default.png",
+      "id": 10
+    },
+    {
+      "label": "Gestor de UAA",
+      "link": "asfasf",
+      "imageUrl": "/src/assets/default.png",
+      "id": 11
+    },
+    {
+      "label": "Gestor Jefe GID",
+      "link": "asfsa",
+      "imageUrl": "/src/assets/default.png",
+      "id": 12
+    },
+    {
+      "label": "Administracion general",
+      "link": "asfasf",
+      "imageUrl": "/src/assets/default.png",
+      "id": 13
+    },
+    {
+      "label": "Administracion Forense ",
+      "link": "asfsaf",
+      "imageUrl": "/src/assets/default.png",
+      "id": 14
+    },
+    {
+      "label": "Administracion GATO",
+      "link": "asfsaf",
+      "imageUrl": "/src/assets/default.png",
+      "id": 15
+    },
+    {
+      "label": "Administracion Cibercrimen",
+      "link": "xz",
+      "imageUrl": "/src/assets/default.png",
+      "id": 16
+    },
+    {
+      "label": "Administracion Jessica",
+      "link": "asfsa",
+      "imageUrl": "/src/assets/default.png",
+      "id": 17
+    },
+    {
+      "label": "Administracion Fiscalias",
+      "link": "asfsaf",
+      "imageUrl": "/src/assets/default.png",
+      "id": 18
+    },
+    {
+      "label": "Gerencia general gestor de daño",
+      "link": "asfsafsa",
+      "imageUrl": "/src/assets/default.png",
+      "id": 19
     }
   ]
 }
