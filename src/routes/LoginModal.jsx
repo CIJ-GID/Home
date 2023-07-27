@@ -1,13 +1,17 @@
 import React, { useState } from "react";
 
 const LoginModal = ({ onLogin }) => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  // const [username, setUsername] = useState("");
+  // const [password, setPassword] = useState("");
+  const [state, setState] = useState({
+    username: "",
+    password: "",
+  })
   const [error, setError] = useState("");
   const [isOpen, setIsOpen] = useState(true);
-
+ 
   const handleLogin = () => {
-    if (username === "admin" && password === "gid12345") {
+    if (state.username === "admin" && state.password.toUpperCase() === import.meta.env.VITE_APP_PASSWORD) {
       setError("");
       onLogin(true);
       setIsOpen(false);
@@ -31,15 +35,15 @@ const LoginModal = ({ onLogin }) => {
           <input
             type="text"
             placeholder="Usuario"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            value={state.username}
+            onChange={(e) => setState({...state, username: e.target.value})}
             autoComplete="off"
           />
           <input
             type="password"
             placeholder="Contraseña"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            value={state.password}
+            onChange={(e) => setState({...state, password: e.target.value})}
             autoComplete="off"
           />
           <button onClick={handleLogin}>Iniciar sesión</button>

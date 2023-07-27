@@ -34,7 +34,7 @@ const Home = () => {
   };
 
   return (
-    <div ref={containerRef} className="container" style={{ display: "flex", justifyContent: "center", overflowX: "auto" }}>
+    <div ref={containerRef} className="container overflow-y-scroll py-20">
       <div style={{ display: "flex", flexWrap: "wrap", gap: "20px", maxWidth: "1200px" }}>
         {buttons.map((button, index) => (
           <div key={index} style={{ flex: "0 0 30%" }}>

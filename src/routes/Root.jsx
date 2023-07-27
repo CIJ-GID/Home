@@ -13,7 +13,7 @@ export default function Root({ addAdminButton }) {
 
   return (
     <>
-      <div className="fixed z-50 flex h-16 w-full items-center bg-primary px-32 shadow-2xl">
+      <div className="z-50 flex h-16 w-full items-center bg-primary px-32 shadow-2xl">
         <ul className="flex h-full w-full">
           {links.map((l, index) => (
             <li key={index} className="mr-8 flex items-center justify-center">
