@@ -75,7 +75,7 @@ const Admin = () => {
   }
 
   return (
-    <div className="container mx-auto max-w-md mt-10 p-6 bg-white rounded-lg shadow-md">
+    <div className="container mx-auto max-w-md mt-10 p-6 bg-white rounded-lg shadow-md h-[50%]">
       <h1 className="text-2xl font-semibold mb-6">Admin</h1>
       <div className="space-y-4">
         <input

@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  background-image: url("./assets/background.svg");
+  background-size: cover;
+}
+
 @layer base {
   body {
     @apply h-full w-full overflow-y-hidden;
@@ -32,7 +37,7 @@
 
 */
   .container {
-    @apply h-screen w-screen p-6 px-32 pt-20;
+    @apply h-screen w-screen p-4 ;
   }
 }
 

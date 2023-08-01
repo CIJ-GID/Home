@@ -35,43 +35,16 @@ const Home = () => {
 
   return (
     <div ref={containerRef} className="container overflow-y-scroll py-20">
-      <div style={{ display: "flex", flexWrap: "wrap", gap: "40px", maxWidth: "1200px" }}>
+      <div className="grid grid-cols-4 gap-4">
         {buttons.map((button, index) => (
-          <div key={index} style={{ flex: "0 0 30%" }}>
-            <Link to={button.link}>
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                }}
-              >
-                <img
-                  src={button.imageUrl}
-                  alt={button.label}
-                  style={{
-                    width: "96px", // Cambiar el ancho de la imagen al 96% del tamaño original
-                    height: "96px", // Cambiar el alto de la imagen al 96% del tamaño original
-                    borderRadius: "50%",
-                    boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.2)",
-                  }}
-                />
-                <button
-                  style={{
-                    border: "none",
-                    background: "transparent",
-                    color: "black",
-                    fontSize: "19.2px", // Cambiar el tamaño de fuente del texto al 96% del tamaño original
-                    marginTop: "4px",
-                    textDecoration: "underline",
-                    cursor: "pointer",
-                  }}
-                >
-                  {button.label}
-                </button>
-              </div>
-            </Link>
-          </div>
+          <Link to={button.link} key={index} className="flex items-center justify-between w-72 rounded-lg bg-white/10 p-4 backdrop-blur-lg transition-all duration-100 shadow-xl hover:bg-white/20 hover:shadow-3xl overflow-hidden">
+              <img
+                src={button.imageUrl}
+                alt={button.label}
+                className="mx-auto mb-2 h-20 w-20 rounded-full object-cover shadow-md"
+              />
+              <h1 className="w-full text-sm font-semibold text-white flex items-center justify-center">{button.label}</h1>
+          </Link>
         ))}
       </div>
     </div>

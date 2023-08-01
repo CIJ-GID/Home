@@ -33,7 +33,7 @@ export default function Root({ addAdminButton }) {
           ))}
         </ul>
       </div>
-      <div className={navigation.state === "loading" ? "loading" : ""}>
+      <div className="flex items-center justify-center">
         <Outlet />
       </div>
     </>
