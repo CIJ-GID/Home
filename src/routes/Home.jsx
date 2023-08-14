@@ -1,64 +1,50 @@
-import React, { useState, useEffect } from "react";
-
+import React, { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const [buttons, setButtons] = useState([]);
+  const containerRef = useRef(null);
 
   useEffect(() => {
-    // Función para obtener los botones desde el archivo buttons.json
-    const getButtonsData = async () => {
-      try {
-        const response = await fetch("../buttons.json"); // Ruta al archivo buttons.json
-        const buttonsData = await response.json();
-        setButtons(buttonsData);
-      } catch (error) {
-        console.error("Error reading buttons.json:", error);
-      }
-    };
-
-    // Llamamos a la función para obtener los botones
-    getButtonsData();
+    // Obtener los botones desde la API de json-server
+    fetch("http://localhost:8000/buttons")
+      .then((response) => response.json())
+      .then((data) => {
+        setButtons(data);
+      })
+      .catch((error) => {
+        console.error("Error getting buttons:", error);
+      });
   }, []);
 
+  useEffect(() => {
+    // Agregar el evento de desplazamiento a todo el contenedor de botones
+    const container = containerRef.current;
+    container.addEventListener("wheel", handleScroll);
+
+    return () => {
+      container.removeEventListener("wheel", handleScroll);
+    };
+  }, [buttons]);
+
+  const handleScroll = (event) => {
+    // Ajustar el desplazamiento del contenedor principal según el movimiento de la rueda del ratón
+    const container = containerRef.current;
+    container.scrollLeft += event.deltaY;
+  };
+
   return (
-    <div className="container">
-      <div style={{ display: "flex", gap: "10px" }}>
+    <div ref={containerRef} className="container overflow-y-scroll py-20">
+      <div className="grid grid-cols-4 gap-4">
         {buttons.map((button, index) => (
-          <div key={index}>
-            <Link to={button.link}>
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                }}
-              >
-                <img
-                  src={button.imageUrl}
-                  alt={button.label}
-                  style={{
-                    width: "64px",
-                    height: "64px",
-                    borderRadius: "50%",
-                    boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.2)",
-                  }}
-                />
-                <button
-                  style={{
-                    border: "none",
-                    background: "transparent",
-                    color: "black",
-                    fontSize: "14px",
-                    marginTop: "4px",
-                    textDecoration: "underline",
-                    cursor: "pointer",
-                  }}
-                >
-                  {button.label}
-                </button>
-              </div>
-            </Link>
-          </div>
+          <Link to={button.link} key={index} className="flex items-center justify-between w-72 rounded-lg bg-white/10 p-4 backdrop-blur-lg transition-all duration-100 shadow-xl hover:bg-white/20 hover:shadow-3xl overflow-hidden">
+              <img
+                src={button.imageUrl}
+                alt={button.label}
+                className="mx-auto mb-2 h-20 w-20 rounded-full object-cover shadow-md"
+              />
+              <h1 className="w-full text-sm font-semibold text-white flex items-center justify-center">{button.label}</h1>
+          </Link>
         ))}
       </div>
     </div>

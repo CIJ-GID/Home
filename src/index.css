@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  background-image: url("./assets/background.svg");
+  background-size: cover;
+}
+
 @layer base {
   body {
     @apply h-full w-full overflow-y-hidden;
@@ -16,7 +21,7 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    background-color: #fff;
+    background-color: #006473;
     border-radius: 5px;
   }
 
@@ -32,12 +37,69 @@
 
 */
   .container {
-    @apply h-screen w-screen p-6 px-32 pt-20;
+    @apply h-screen w-screen p-4 ;
   }
 }
 
-.small-image {
-  width: 32px;
-  height: 32px;
-  object-fit: contain;
+
+
+
+/* Estilos del modal */
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Estilos adicionales */
+h2 {
+  margin-bottom: 20px;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+button {
+  background-color: #006473;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #004550;
+}
+
+.error {
+  color: red;
+  margin-top: 10px;
 }
